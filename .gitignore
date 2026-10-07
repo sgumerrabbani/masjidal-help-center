@@ -1,6 +1,7 @@
 # Generated previews and local temporary files
 artifacts/
 tmp/
+_site/
 __pycache__/
 *.py[cod]
 

@@ -24,3 +24,9 @@ The import manifest, original source URLs, and asset mappings are in `assets/con
 ## Validation
 
 Install Python Playwright and its Chromium browser, then run `python scripts/verify.py` while the preview server is running. This checks every article at desktop, tablet, and mobile widths, image loads, horizontal overflow, mobile navigation, and search. Screenshots are saved in `artifacts/`.
+
+## Hosted preview
+
+The GitHub Actions workflow in `.github/workflows/pages.yml` deploys the static site to GitHub Pages whenever `main` is updated. Enable GitHub Pages with GitHub Actions as its source.
+
+Expected preview URL: https://sgumerrabbani.github.io/masjidal-help-center/

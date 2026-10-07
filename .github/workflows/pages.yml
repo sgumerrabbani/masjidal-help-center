@@ -1,0 +1,44 @@
+name: Deploy help center preview
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+      - name: Check JavaScript
+        run: |
+          node --check assets/js/data.js
+          node --check assets/js/site.js
+          node --check assets/js/pages.js
+      - name: Prepare static site
+        run: |
+          mkdir _site
+          cp index.html robots.txt _site/
+          cp -R assets al-iqamah article category _site/
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - name: Deploy preview
+        id: deployment
+        uses: actions/deploy-pages@v4
