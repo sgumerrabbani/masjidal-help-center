@@ -1,0 +1,19 @@
+# Generated previews and local temporary files
+artifacts/
+tmp/
+__pycache__/
+*.py[cod]
+
+# Local dependencies and configuration
+node_modules/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+
+# Editor and operating system files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
