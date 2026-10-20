@@ -54,3 +54,15 @@ The source comparison verifies that documented information and images were prese
 - docs/wordpress-rollout.md: 54 numbered steps covering backup, archive, upload, preview checks, menu cutover, optional stable /help/ URL, exact redirects, privacy, rollback, and future updates.
 - docs/redirect-map.csv: 53 proposed exact old-to-new URL mappings, initially using temporary 302 redirects and the /help-v2/ destination. No rules have been installed.
 - artifacts/masjidal-help-center-upload.zip: static-only upload package, built by scripts/package_site.py and tested in a subfolder. It is not a WordPress theme/plugin installer.
+
+
+## Follow-up image audit ? October 20, 2026
+
+- Freshly fetched all 45 published source articles and compared their 265 image placements against the local guides. Every placement was represented; Get Started has no article screenshots in the published source.
+- Checked the article bodies for inline background images, SVGs, canvases, and picture elements; none added a missing diagram or image beyond the imported screenshots.
+- Downloaded and decoded all 245 distinct source image files. All were accessible and byte-identical to the previously imported copies.
+- Inspected 544 additional image candidates from responsive source sets and image links. All were accessible. Replaced 52 small or cropped thumbnails with their larger original images, without resampling or changing the source artwork. This also restores image content cropped by WordPress thumbnails.
+- Updated image references, intrinsic dimensions, category/card references, and asset aliases so subsequent imports retain the originals. The improvements cover TV Setup, Display Themes, Screen Size, Signage Player Setup, and three derived TV device guides.
+- Retained the two current Widgets screenshots supplied by the user rather than restoring screenshots of the obsolete widget system. The API guides are based on the supplied PDF, which has no screenshots to import. Current portal screenshots for API key creation/domain settings could be added later if supplied with sensitive values hidden.
+- After replacement, checked all 54 articles at 1440px and 390px in Chromium (108 page/viewport cases), including every rendered image's actual dimensions against the manifest. No missing images, horizontal overflow, or runtime errors.
+- No WordPress changes were made. Image inventories, downloaded comparison candidates, and before/after contact sheet remain in ignored tmp/image-review/ for inspection.
