@@ -1,4 +1,4 @@
-﻿"""Import official Masjidal help copy and assets. Run: python scripts/import_content.py"""
+"""Import official Masjidal help copy and assets. Run: python scripts/import_content.py"""
 import requests,re,json,hashlib,concurrent.futures
 from pathlib import Path
 from urllib.parse import urljoin,urlparse
@@ -11,7 +11,7 @@ def options(s):
 def slug(u):return urlparse(u).path.strip('/').split('/')[-1]
 assets={}
 def asset(u):
- u=urljoin(BASE,u)
+ u=urljoin(BASE,u).replace('https://mymasjidal.com/wp-content/','https://help.masjidal.com/wp-content/')
  if u in assets:return assets[u]
  ext=Path(urlparse(u).path).suffix or '.png'; dest='assets/images/official/'+hashlib.sha1(u.encode()).hexdigest()[:14]+ext
  p=ROOT/dest;p.parent.mkdir(parents=True,exist_ok=True)
@@ -32,23 +32,13 @@ while queue:
   seen.add(u); body=s.select_one('#eckb-article-content-body')
   if body:
    title=s.select_one('.eckb-article-title').get_text(' ',strip=True); blocks=[]
-   for el in body.select('h1,h2,h3,h4,h5,p,ul,ol,img,iframe'):
-    if el.find_parent(['p','ul','ol']) or el.find(['input','select','textarea','button']):continue
-    if el.name=='img':
-     src=el.get('data-lazy-src') or el.get('src');
-     if src and not src.startswith('data:'):
-      try: blocks.append({'type':'image','src':asset(src),'alt':el.get('alt') or title})
-      except Exception: blocks.append({'type':'link','url':urljoin(u,src),'text':'View screenshot'})
-    elif el.name=='iframe':blocks.append({'type':'link','url':urljoin(u,el.get('data-src') or el.get('src','')),'text':'Watch the official video or open embedded content'})
-    elif el.get_text(' ',strip=True):
-     for a in el.select('a[href]'):a['href']=urljoin(u,a['href'])
-     for tag in [el,*el.find_all()]:
-      for attr in list(tag.attrs):
-       if attr not in ['href','title']:del tag[attr]
-     if el.name.startswith('h'):el.name='h2'
-     blocks.append({'type':'html','html':str(el)})
-   if slug(u)=='widget':blocks=blocks[:6]+[{'type':'link','url':u,'text':'Open the official widget generator to customize and generate embed code'}]
+   from article_extract import extract_article
+   blocks=extract_article(body,u,asset)
    articles[slug(u)]=dict(slug=slug(u),title=title,source=u,blocks=blocks)
+   for link in body.select('a[href]'):
+    href=urljoin(u,link['href']); parsed=urlparse(href)
+    if parsed.hostname in ['help.masjidal.com','mymasjidal.com','masjidal.com'] and '/knowledge-base/' in parsed.path and '/category/' not in parsed.path and slug(href)!='knowledge-base':
+     queue.add(BASE+parsed.path.rstrip('/')+'/')
   else:
    links=[urljoin(u,x['url']) for x in options(s)]
    links += [urljoin(u,a['href']) for a in s.select('a[href]') if '/knowledge-base/' in a['href'] and '/category/' not in a['href']]

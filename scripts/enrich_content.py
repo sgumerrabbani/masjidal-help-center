@@ -117,7 +117,7 @@ for a in articles.values():
    soup = BeautifulSoup(b['html'], 'html.parser')
    for link in soup.select('a[href]'):
     href = link['href']; target = href.split('?')[0].rstrip('/').split('/')[-1]
-    if '/knowledge-base/' in href and target in articles: link['href'] = '../article/index.html?topic=' + target
+    if '/knowledge-base/' in href and target in articles and 'add_to_cart' not in href and 'add-to-cart' not in href: link['href'] = '../article/index.html?topic=' + target
    b['html'] = str(soup)
 from content_overrides import apply_content_overrides
 apply_content_overrides(d, ROOT)
@@ -125,3 +125,6 @@ p.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding='utf-8')
 js = ROOT / 'assets/js/data.js'; old = js.read_text(encoding='utf-8-sig'); product = old[old.index('const productLinks'):]
 js.write_text('const helpData = ' + json.dumps(d, ensure_ascii=False) + ';\nconst topics=helpData.topics;\n' + product, encoding='utf-8')
 print('Updated', len(articles), 'guides and', len(d['topics']), 'categories.')
+
+from stamp_assets import stamp_assets
+stamp_assets(ROOT)
