@@ -22,3 +22,16 @@
 @font-face{font-family:Poppins;src:url(../fonts/poppins-400.ttf);font-weight:400;font-style:normal;font-display:swap}
 @font-face{font-family:Poppins;src:url(../fonts/poppins-500.ttf);font-weight:500;font-style:normal;font-display:swap}
 @font-face{font-family:Poppins;src:url(../fonts/poppins-700.ttf);font-weight:700;font-style:normal;font-display:swap}
+.email-dialog{width:min(460px,calc(100% - 32px));max-height:calc(100dvh - 32px);overflow-y:auto;margin:auto;border:1px solid var(--line);border-radius:18px;padding:26px;color:var(--ink);box-shadow:0 20px 80px #0003}
+.email-dialog::backdrop{background:#14233980}
+.email-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.email-dialog h2{font-size:22px;margin:0}
+.email-dialog p{font-size:14px;color:var(--muted)}
+.email-close{background:white;border:1px solid var(--line);border-radius:8px;font-size:24px;line-height:1;width:40px;height:40px;flex-shrink:0}
+.email-dialog input{width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;font-size:15px;color:var(--ink);background:var(--surface-2)}
+.email-services{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.email-services a,.email-services button{display:flex;align-items:center;justify-content:center;text-align:center;min-height:48px;padding:10px;border:1px solid #d6dfec;border-radius:8px;background:var(--brand-soft);color:var(--brand);font-size:13px;font-weight:600}
+.email-services a:first-child{grid-column:1/-1;background:var(--brand);color:white}
+.email-services button{grid-column:1/-1;background:white}
+.email-dialog .email-hint{font-size:12px;margin-bottom:0}
+.email-dialog #emailStatus{color:var(--brand);margin-bottom:0}

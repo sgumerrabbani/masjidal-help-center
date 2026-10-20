@@ -85,28 +85,6 @@
       ]
     },
     {
-      "slug": "general",
-      "title": "All Other Topics",
-      "desc": "General topics such as getting started, prayer timing setup and more.",
-      "image": "assets/images/official/6d4db437419031.jpg",
-      "source": "https://help.masjidal.com/knowledge-base/category/general/",
-      "items": [
-        "time-sync",
-        "screen-size",
-        "signage-player-setup-guide",
-        "athan-time",
-        "iqamah",
-        "salah",
-        "widget",
-        "wordpress",
-        "displaying-content-on-the-athan-clock",
-        "tv-guide",
-        "get-started",
-        "ramadan-ready",
-        "taraweeh-timings"
-      ]
-    },
-    {
       "slug": "displaying-content-on-the-athan-clock",
       "title": "Masjid Content on Athan Clock",
       "desc": "The Athan clock is an integral part of many muslim homes and now you can display your Masjid content on the Athan clocks.",
@@ -139,6 +117,28 @@
         "server-key-troubleshooting"
       ],
       "source": "Masjidal-Server-Key-Guide.pdf"
+    },
+    {
+      "slug": "general",
+      "title": "All Other Topics",
+      "desc": "General topics such as getting started, prayer timing setup and more.",
+      "image": "assets/images/official/6d4db437419031.jpg",
+      "source": "https://help.masjidal.com/knowledge-base/category/general/",
+      "items": [
+        "time-sync",
+        "screen-size",
+        "signage-player-setup-guide",
+        "athan-time",
+        "iqamah",
+        "salah",
+        "widget",
+        "wordpress",
+        "displaying-content-on-the-athan-clock",
+        "tv-guide",
+        "get-started",
+        "ramadan-ready",
+        "taraweeh-timings"
+      ]
     }
   ],
   "articles": {

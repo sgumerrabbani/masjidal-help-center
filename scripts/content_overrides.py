@@ -1,8 +1,9 @@
-﻿"""Maintain authored guides when refreshing imported legacy content."""
+"""Maintain authored guides when refreshing imported legacy content."""
 from pathlib import Path
 from bs4 import BeautifulSoup
 
 def apply_content_overrides(data, root):
+    data['topics'].sort(key=lambda topic: topic['slug'] == 'general')
     source = root / 'assets/content/widget.html'
     soup = BeautifulSoup(source.read_text(encoding='utf-8-sig'), 'html.parser')
     blocks = []
