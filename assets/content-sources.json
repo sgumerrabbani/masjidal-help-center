@@ -53,8 +53,8 @@
     {
       "slug": "widget",
       "title": "Website Integration",
-      "desc": "Easily display prayer and iqamah timings on your Masjid website.",
-      "image": "assets/images/official/7d1d21eb7faf99.png",
+      "desc": "Add prayer times and announcements to your website using customizable Masjidal widgets.",
+      "image": "assets/images/widgets/editor-overview.png",
       "source": "https://help.masjidal.com/knowledge-base/widget",
       "items": [
         "widget"
@@ -429,43 +429,151 @@
     },
     "widget": {
       "slug": "widget",
-      "title": "Widget",
-      "source": "https://help.masjidal.com/knowledge-base/widget/",
+      "title": "Website Widgets",
+      "source": "Masjidal portal widget editor and installation guide, supplied screenshots",
       "blocks": [
         {
           "type": "html",
-          "html": "<p>You can easily display Prayer and Iqamah times on your masjid’s website by adding simple code. We offer multiple options, copy the code that meets your needs and then add it to your Masjid website.</p>"
+          "html": "<p>Add prayer times and announcements to your masjid website using the widget editor in the Masjidal portal. Customize the appearance, publish your settings, and copy the embed code for each widget.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<div class=\"guide-note\"><strong>Professional plan</strong><p>Extra colors and theme options require the <strong>Professional plan</strong>. The options available in your account depend on your plan.</p></div>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>1. Open the widget editor</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<ol><li>Sign in to your <a href=\"https://portal.masjidal.com\">Masjidal portal</a> and select the correct masjid.</li><li>In the left menu, open <strong>Integrations → Widgets</strong>.</li><li>The editor shows previews for <strong>Prayer Times</strong> and <strong>Announcements</strong>. Use <strong>Installation Guide</strong> for the installation steps.</li></ol>"
         },
         {
           "type": "image",
-          "src": "assets/images/official/f0cab1436eaa40.webp",
-          "alt": "Widget"
+          "src": "assets/images/widgets/editor-overview.png",
+          "alt": "Masjidal portal showing Integrations, Widgets, appearance controls, and prayer times and announcements previews"
         },
         {
           "type": "html",
-          "html": "<h2>Your Masjid ID</h2>"
+          "html": "<h2>2. Add the widget library to your website</h2>"
         },
         {
           "type": "html",
-          "html": "<p>To generate the correct links, we need your Masjidal Masjid ID. Login to your <a href=\"http://masjidal.com/site/login\">Masjidal account</a>. If you haven’t signed up for your Masjid, please <a href=\"http://masjidal.com/site/signup\">sign up</a>, its free. After login in and setting your Salah and Iqamah times, click on the <strong><span>Settings</span> </strong>link on the left navigation bar and then the <span><strong>Web Integration</strong> </span>tab. <span>The Masjid ID is displayed in red, copy it and paste it in the Masjid ID field below <strong>(if its not prepopulated)</strong>. </span></p>"
+          "html": "<p>Add this script once inside your website’s <code>&lt;head&gt;</code> tag, on the pages where the widgets will appear:</p>"
+        },
+        {
+          "type": "html",
+          "html": "<pre><code>&lt;script\n  async\n  src=\"https://widgets.masjidal.com/timetable/v0/widget.js\"&gt;\n&lt;/script&gt;</code></pre>"
+        },
+        {
+          "type": "html",
+          "html": "<p>This loads the widget library. You will add the individual widget snippets where you want the prayer times or announcements to appear.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>3. Customize the widgets</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<h3>Global appearance</h3>"
+        },
+        {
+          "type": "html",
+          "html": "<ul><li><strong>Dark Mode:</strong> choose <strong>Light</strong>, <strong>Auto</strong>, or <strong>Dark</strong>.</li><li><strong>Accent Color:</strong> select an available color. Extra colors and theme options require the Professional plan.</li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<h3>Prayer times</h3>"
+        },
+        {
+          "type": "html",
+          "html": "<ul><li><strong>Layout:</strong> choose from the options available for your plan. The editor shows Grid, Table, Table 2, Ribbon, Compact, and Minimal Bar.</li><li><strong>Header:</strong> select Masjid Name, Prayer Timings, or Hide.</li><li><strong>Hijri Date Changes At:</strong> choose Midnight or Maghrib.</li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<h3>Announcements</h3>"
+        },
+        {
+          "type": "html",
+          "html": "<p>Choose an available layout: <strong>Stacked</strong>, <strong>Compact</strong>, or <strong>Ribbon</strong>. Check the preview to see how your announcements will look.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>Open <strong>Advanced Settings</strong> if you need to adjust the additional controls available in your account.</p>"
         },
         {
           "type": "image",
-          "src": "assets/images/official/3a4ed83b74441d.jpg",
-          "alt": "Wordpress Integration"
+          "src": "assets/images/widgets/publish-settings.png",
+          "alt": "Widget editor showing prayer and announcement layout options, Advanced Settings, and the Publish button"
         },
         {
           "type": "html",
-          "html": "<p>Customize the widgets by entering the following. Leave blank for default settings. Please note that not all settings are applied to every version.</p>"
+          "html": "<h2>4. Publish your settings</h2>"
         },
         {
-          "type": "link",
-          "url": "https://help.masjidal.com/knowledge-base/widget/",
-          "text": "Open the official widget generator to customize and generate embed code"
+          "type": "html",
+          "html": "<p>When you are happy with both previews, click <strong>Publish</strong> at the bottom of the settings panel to save the widget configuration. Install the library and publish your settings before embedding the widgets.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>5. Embed prayer times or announcements</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<ol><li>Click <strong>Embed</strong> above the Prayer Times or Announcements preview.</li><li>The portal fills in your frontend key automatically. Manage your keys and allowed website domains under <strong>Integrations → API Keys</strong>.</li><li>Click <strong>Copy</strong> and paste the complete snippet into your website’s HTML where you want the widget to appear.</li><li>For both widgets, copy and place each snippet separately. Load the library script only once on the page.</li></ol>"
+        },
+        {
+          "type": "html",
+          "html": "<h3>Prayer times example</h3>"
+        },
+        {
+          "type": "html",
+          "html": "<p>These examples use placeholders. Copy your own complete snippet from the portal instead of using these values.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<pre><code>&lt;masjidal-widget\n  async\n  widget-id=\"YOUR_WIDGET_ID\"\n  type=\"prayer\"\n  api-key=\"YOUR_FRONTEND_KEY\"&gt;\n&lt;/masjidal-widget&gt;</code></pre>"
+        },
+        {
+          "type": "html",
+          "html": "<h3>Announcements example</h3>"
+        },
+        {
+          "type": "html",
+          "html": "<pre><code>&lt;masjidal-widget\n  async\n  widget-id=\"YOUR_WIDGET_ID\"\n  type=\"announcement\"\n  api-key=\"YOUR_FRONTEND_KEY\"&gt;\n&lt;/masjidal-widget&gt;</code></pre>"
+        },
+        {
+          "type": "html",
+          "html": "<div class=\"guide-note\"><strong>Use a frontend key</strong><p>Website widgets use a frontend key beginning with <code>msj_pk_</code>. Add your website domain to its allowed domains in API Keys. Never put a server key beginning with <code>msj_sk_</code> in website HTML or browser JavaScript.</p></div>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>Installing on WordPress</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<ol><li>Add the library script to the site’s head using your theme’s supported integration field or an approved header-code tool. If the page uses Divi, its Theme Options → Integration area may provide a head-code field.</li><li>Edit the page and add a <strong>Custom HTML</strong> block, or a <strong>Code</strong> module in Divi.</li><li>Paste the actual widget snippet copied from the portal into that block or module.</li><li>Save the page, clear any page cache, and check the published page on a phone and a desktop.</li></ol>"
+        },
+        {
+          "type": "html",
+          "html": "<p>Your WordPress account must be allowed to save custom HTML and scripts. If your editor removes the code, ask your site administrator to install it through the site’s supported code-insertion method.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>If a widget does not display</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<ul><li>Confirm that the library script is installed and loads on the page.</li><li>Confirm that you clicked Publish in the widget editor.</li><li>Copy the full embed snippet again and check the widget ID, type, and frontend key.</li><li>Check the actual website domain is allowed under Integrations → API Keys.</li><li>Check the snippet is in a Custom HTML block or Code module, rather than a normal text paragraph.</li><li>Clear website caches and reload the published page.</li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<p>Need help? Email <a href=\"mailto:masjidsupport@masjidal.com\">masjidsupport@masjidal.com</a>.</p>"
         }
       ],
-      "desc": "Add daily and monthly prayer timings to your masjid website with an embeddable widget.",
-      "image": "assets/images/official/f0cab1436eaa40.webp"
+      "desc": "Customize, publish, and embed prayer times and announcements from Integrations → Widgets in the Masjidal portal.",
+      "image": "assets/images/widgets/editor-overview.png",
+      "updated": "2026-10-20"
     },
     "announcements-as-text": {
       "slug": "announcements-as-text",

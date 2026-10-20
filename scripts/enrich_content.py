@@ -119,6 +119,8 @@ for a in articles.values():
     href = link['href']; target = href.split('?')[0].rstrip('/').split('/')[-1]
     if '/knowledge-base/' in href and target in articles: link['href'] = '../article/index.html?topic=' + target
    b['html'] = str(soup)
+from content_overrides import apply_content_overrides
+apply_content_overrides(d, ROOT)
 p.write_text(json.dumps(d, ensure_ascii=False, indent=2), encoding='utf-8')
 js = ROOT / 'assets/js/data.js'; old = js.read_text(encoding='utf-8-sig'); product = old[old.index('const productLinks'):]
 js.write_text('const helpData = ' + json.dumps(d, ensure_ascii=False) + ';\nconst topics=helpData.topics;\n' + product, encoding='utf-8')

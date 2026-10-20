@@ -30,3 +30,9 @@ Install Python Playwright and its Chromium browser, then run `python scripts/ver
 The GitHub Actions workflow in `.github/workflows/pages.yml` deploys the static site to GitHub Pages whenever `main` is updated. Enable GitHub Pages with GitHub Actions as its source.
 
 Expected preview URL: https://sgumerrabbani.github.io/masjidal-help-center/
+
+## WordPress rollout
+
+See [the manual WordPress rollout and rollback instructions](docs/wordpress-rollout.md) for hosting the new help center alongside the existing site. No WordPress changes are made by the deployment workflow.
+
+The current Widgets guide is maintained in `assets/content/widget.html`. Run `python scripts/content_overrides.py` after editing it; imports also apply this override automatically.
