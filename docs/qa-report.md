@@ -1,5 +1,7 @@
 ﻿# Help-center QA report
 
+Latest verification: [October 27, 2026 full-site report](qa-2026-10-27.md).
+
 Reviewed October 20, 2026. This audit covers the static help-center website and its public documentation, not a live masjid's account or device configuration. WordPress was not edited.
 
 ## Result

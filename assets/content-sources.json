@@ -33,7 +33,8 @@
         "taraweeh-timings",
         "qr-code-on-timing-screen",
         "mobile-app-poster",
-        "donation-qr-code"
+        "donation-qr-code",
+        "resetting-al-iqamah"
       ]
     },
     {
@@ -140,7 +141,9 @@
         "taraweeh-timings",
         "slideshow",
         "sponsor-an-iftar-campaign",
-        "zakat-ul-fitr-campaign"
+        "zakat-ul-fitr-campaign",
+        "mdonate-phone-app",
+        "stripe-integration"
       ]
     }
   ],
@@ -5343,6 +5346,227 @@
         }
       ],
       "image": "assets/images/official/3db020fd4ad990.png"
+    },
+    "mdonate-phone-app": {
+      "slug": "mdonate-phone-app",
+      "title": "mDonate Phone App",
+      "desc": "Collect in-person donations with the mDonate phone app and a Stripe card reader. For your masjid team only.",
+      "source": "https://help.masjidal.com/knowledge-base/mdonate-phone-app/",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>Accept in-person donations on your phone using our mDonate phone app and a Stripe card reader. This app should only be used by your team and should not be shared with the community. \n</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>A Stripe reader is needed. Please make sure you have that available before using the mDonate app. <a href=\"https://stripe.com/terminal/m2\">Click here</a> to order the Stripe reader. </p>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>Step 1</h2><p>: Download the mDonate phone app from the <a href=\"https://apps.apple.com/us/app/masjidal-mdonate/id6532619595\">Apple App Store</a> or <a href=\"https://play.google.com/store/apps/details?id=com.masjidal.mdonatetaptopay\">Android Playstore</a>.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<h2><strong>Step 2</strong>: Login to the mDonate app using your Masjidal email and password.</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>Step 3</h2><p>: Connect the Stripe reader in the mDonate app and start collecting in-person donations.</p>"
+        }
+      ],
+      "image": "assets/images/mdonate-guide.svg"
+    },
+    "resetting-al-iqamah": {
+      "slug": "resetting-al-iqamah",
+      "title": "Resetting Al-Iqamah",
+      "desc": "Reset Al-Iqamah on your signage player when an update unexpectedly displays a Google Play sign-in screen.",
+      "source": "https://help.masjidal.com/knowledge-base/resetting-al-iqamah/",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>In some cases, Google pushes an update that will require to sign in to Google Play account. If you are using the signage player and see the Google Sign screen when launching the Al-Iqamah app, then please follow these steps to reset the app and then apply the latest update.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>Google Play Sign In Screen</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<p>If you see this screen using our signage player (the black device that connects to the TV) then follow the steps below.</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/063d576b36d161.jpg",
+          "alt": "WhatsApp Image 2025-03-12 at 07.09.44_7aaac0d8",
+          "width": 1200,
+          "height": 663
+        },
+        {
+          "type": "html",
+          "html": "<p>Using the mouse that was provided with the signage player device, click the RIGHT button to display the Ar-Rahman screen.</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/c1c4eabf41bcbe.png",
+          "alt": "Al-Iqamah Launching Settings",
+          "width": 1000,
+          "height": 1000
+        },
+        {
+          "type": "html",
+          "html": "<p>Scroll down and click on Apps and then select ALIQAMA</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/90e0d4eb3c6bc9.png",
+          "alt": "Screenshot 2025-03-13 103444",
+          "width": 2840,
+          "height": 1622
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/88cd7b656ca2f6.png",
+          "alt": "Screenshot 2025-03-13 103825",
+          "width": 2707,
+          "height": 1697
+        },
+        {
+          "type": "html",
+          "html": "<p>Click on the disable button and then click on the disable app in the popup and then click OK</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/a508c32376fc3a.png",
+          "alt": "Screenshot 2025-03-13 104332",
+          "width": 2881,
+          "height": 1440
+        },
+        {
+          "type": "html",
+          "html": "<p>The above step will reset the app. Now click on Enable button and then right click the mouse till you are back on the Ar-Rahman screen. Click on the White circular icon on the bottom.</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/2cce78cb764275.png",
+          "alt": "Screenshot 2025-03-13 104712",
+          "width": 2450,
+          "height": 1575
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/6e0b1759826320.png",
+          "alt": "Screenshot 2025-03-13 104808",
+          "width": 2881,
+          "height": 1677
+        },
+        {
+          "type": "html",
+          "html": "<p>Click on the Al Iqamah app icon and then search for your Masjid. Then select your masjid and then click on the UPDATE AL-IQAMAH button on the button right</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/e0f6fb5795f18e.png",
+          "alt": "Screenshot 2025-03-13 105247",
+          "width": 2881,
+          "height": 1528
+        },
+        {
+          "type": "html",
+          "html": "<p>Let the update download and then install it. After installing it, click on the Circle icon again on Ar-Rahman screen and you should see the Green icon for Al-Iqamah. Click on it and you should be all set. </p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>If you still see the purple icon for Al-Iqamah then the update did not install. Please try updating the app again.</p>"
+        }
+      ],
+      "image": "assets/images/official/063d576b36d161.jpg"
+    },
+    "stripe-integration": {
+      "slug": "stripe-integration",
+      "title": "Stripe Integration",
+      "desc": "Connect your Stripe account through Donation Portal to accept donations with the Ultimate plan.",
+      "source": "https://help.masjidal.com/knowledge-base/stripe-integration/",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>To accept donations, your organization will need a Stripe account. If you don’t already have one, you can sign up at <a href=\"https://dashboard.stripe.com/register\">stripe.com.</a></p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>You’ll also need to upgrade your Masjidal account to the Ultimate plan to access the donation features.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<p>From your Masjidal account, click on the <strong>Donation Portal</strong> link:</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/9f87bd28bc4dd1.png",
+          "alt": "Donation",
+          "width": 2881,
+          "height": 1406
+        },
+        {
+          "type": "html",
+          "html": "<p>Click on the <strong>Accounts -&gt; Payment Processors</strong>:</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/5ac87cadaf05f9.png",
+          "alt": "Payment Processors",
+          "width": 2881,
+          "height": 1832
+        },
+        {
+          "type": "html",
+          "html": "<p>Click on <strong>Already have a Stripe account</strong> button (white one).</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/cd6d976b390a86.png",
+          "alt": "Stripe Account",
+          "width": 2881,
+          "height": 1851
+        },
+        {
+          "type": "html",
+          "html": "<p>Select or sign in to your Stripe account and then click on <strong>Connect</strong> button. It’s important to use the same Stripe credentials that you used to create the Stripe account.</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/651fe924baa557.png",
+          "alt": "stripe",
+          "width": 2881,
+          "height": 1777
+        },
+        {
+          "type": "html",
+          "html": "<p>You should see the status of <strong>Connected</strong> on your Masjidal Donation Portal.</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/66c8dfffc56955.png",
+          "alt": "Stripe Connected",
+          "width": 2881,
+          "height": 1735
+        },
+        {
+          "type": "html",
+          "html": "<p>Next, click on the Organization Info, fill in all the required fields and then click the <strong>Save</strong> button:</p>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/44050b6d3f03c8.png",
+          "alt": "Org Info",
+          "width": 2881,
+          "height": 1497
+        },
+        {
+          "type": "html",
+          "html": "<p>And that’s it, you are all set. Send an email to the Masjidal team at <a href=\"mailto:masjidsupport@masjidal.com\">masjidsupport@masjidal.com</a> to let them know that you have completed the integration. The Masjidal team will setup a couple of campaigns for you to match you branding colors. </p>"
+        }
+      ],
+      "image": "assets/images/official/9f87bd28bc4dd1.png"
     }
   },
   "logo": "assets/images/official/2da24e07aaca55.png",
@@ -5654,6 +5878,19 @@
     "https://help.masjidal.com/wp-content/uploads/2022/08/Help-Signage-Setup-6.png": "assets/images/official/03be3402449e35.png",
     "https://help.masjidal.com/wp-content/uploads/2022/08/Copy-of-Al-Iqamah-Screens-8.png": "assets/images/official/d85509e167c34a.png",
     "https://help.masjidal.com/wp-content/uploads/2022/08/Help-Signage-Setup-3.png": "assets/images/official/0acdcb044cc029.png",
-    "https://help.masjidal.com/wp-content/uploads/2022/08/Help-Signage-Setup-4.png": "assets/images/official/4e575c0124df32.png"
+    "https://help.masjidal.com/wp-content/uploads/2022/08/Help-Signage-Setup-4.png": "assets/images/official/4e575c0124df32.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-12-at-07.09.44_7aaac0d8.jpg": "assets/images/official/063d576b36d161.jpg",
+    "https://help.masjidal.com/wp-content/uploads/2025/03/Screenshot-2025-03-13-103444.png": "assets/images/official/90e0d4eb3c6bc9.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/03/Screenshot-2025-03-13-103825.png": "assets/images/official/88cd7b656ca2f6.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/03/Screenshot-2025-03-13-104332.png": "assets/images/official/a508c32376fc3a.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/03/Screenshot-2025-03-13-104712.png": "assets/images/official/2cce78cb764275.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/03/Screenshot-2025-03-13-104808.png": "assets/images/official/6e0b1759826320.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/03/Screenshot-2025-03-13-105247.png": "assets/images/official/e0f6fb5795f18e.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/06/Donation.png": "assets/images/official/9f87bd28bc4dd1.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/06/Payment-Processors.png": "assets/images/official/5ac87cadaf05f9.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/06/Stripe-Account.png": "assets/images/official/cd6d976b390a86.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/06/stripe.png": "assets/images/official/651fe924baa557.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/06/Stripe-Connected.png": "assets/images/official/66c8dfffc56955.png",
+    "https://help.masjidal.com/wp-content/uploads/2025/06/Org-Info-1.png": "assets/images/official/44050b6d3f03c8.png"
   }
 }

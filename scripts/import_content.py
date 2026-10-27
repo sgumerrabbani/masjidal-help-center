@@ -9,16 +9,22 @@ def fetch(u):
 def options(s):
  m=re.search(r'et_link_options_data = (.*?);',str(s));return json.loads(m[1]) if m else []
 def slug(u):return urlparse(u).path.strip('/').split('/')[-1]
-assets={}
+manifest=ROOT/'assets/content-sources.json'
+assets=json.loads(manifest.read_text(encoding='utf-8')).get('assets',{}) if manifest.exists() else {}
 def asset(u):
  u=urljoin(BASE,u).replace('https://mymasjidal.com/wp-content/','https://help.masjidal.com/wp-content/')
- if u in assets:return assets[u]
+ if u in assets and (ROOT/assets[u]).exists():return assets[u]
  ext=Path(urlparse(u).path).suffix or '.png'; dest='assets/images/official/'+hashlib.sha1(u.encode()).hexdigest()[:14]+ext
  p=ROOT/dest;p.parent.mkdir(parents=True,exist_ok=True)
  if not p.exists():
   r=requests.get(u,timeout=45);r.raise_for_status();p.write_bytes(r.content)
  assets[u]=dest;return dest
 home=fetch(BASE+'/help/'); groups=[]; queue=set()
+# Published articles can be absent from the help directory and its links.
+sitemap=requests.get(BASE+'/wp-sitemap-posts-epkb_post_type_1-1.xml',timeout=45)
+sitemap.raise_for_status()
+from xml.etree import ElementTree
+queue.update(node.text for node in ElementTree.fromstring(sitemap.content).iter() if node.tag.endswith('}loc'))
 for op in options(home):
  c=home.select_one('.'+op['class']); h=c.find('h4'); u=urljoin(BASE,op['url'])
  groups.append(dict(slug=slug(u),title=h.get_text(' ',strip=True),desc=c.select_one('.et_pb_blurb_description').get_text(' ',strip=True).replace('\ufffd','’'),image=asset(c.find('img')['src']),source=u,items=[]));queue.add(u)
@@ -47,6 +53,9 @@ while queue:
    for g in groups:
     if g['source']==u:g['items']=list(dict.fromkeys(slug(x) for x in links))
  print('Imported',len(articles),'articles; pending',len(queue-seen),flush=True)
+assigned={item for group in groups for item in group['items']}
+general=next(group for group in groups if group['slug']=='general')
+general['items'].extend(sorted(set(articles)-assigned))
 brand=fetch('https://mymasjidal.ca/')
 logo=brand.select_one('.header__heading-logo'); asset('https:'+logo['src'].replace('_60x','_300x'))
 logo_path=assets['https:'+logo['src'].replace('_60x','_300x')]

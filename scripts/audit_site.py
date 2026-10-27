@@ -4,9 +4,9 @@ from pathlib import Path
 from urllib.parse import urlparse,parse_qs,unquote
 from playwright.sync_api import sync_playwright
 ROOT=Path(__file__).resolve().parents[1]
-parser=argparse.ArgumentParser();parser.add_argument('--base',default='http://localhost:4173/');parser.add_argument('--quick',action='store_true');args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--base',default='http://localhost:4173/');parser.add_argument('--quick',action='store_true');parser.add_argument('--output',default='artifacts/full-audit');args=parser.parse_args()
 BASE=args.base.rstrip('/')+'/'
-OUT=ROOT/'artifacts/full-audit';OUT.mkdir(parents=True,exist_ok=True)
+OUT=ROOT/args.output;OUT.mkdir(parents=True,exist_ok=True)
 D=json.loads((ROOT/'assets/content-sources.json').read_text(encoding='utf-8'))
 paths=['index.html','al-iqamah/index.html','category/index.html?q=prayer']+['category/index.html?topic='+t['slug'] for t in D['topics']]+['article/index.html?topic='+s for s in D['articles']]
 results=[];visited=set();hrefs=set();errors=[];bad_responses=[];started=time.monotonic()
@@ -24,6 +24,7 @@ def ready(page):
     page.wait_for_selector('main h1')
     page.locator('img').evaluate_all("imgs=>imgs.forEach(i=>i.loading='eager')")
     page.wait_for_function('[...document.images].every(i=>i.complete)')
+    page.evaluate('Promise.all([...document.images].map(i=>i.decode().catch(()=>{})))')
     page.evaluate('document.fonts.ready')
 
 with sync_playwright() as p:

@@ -9,6 +9,8 @@ def apply_content_overrides(data, root):
         for block in article['blocks']:
             if block['type'] != 'html':
                 continue
+            if article['slug'] in ['mdonate-phone-app', 'resetting-al-iqamah', 'stripe-integration']:
+                block['html'] = block['html'].replace('\ufffd', "'")
             fragment = BeautifulSoup(block['html'], 'html.parser')
             for link in fragment.select('a[href]'):
                 if link['href'].rstrip('/') in ['https://portal.masjidal.com/login','https://portal.masjidal.com/registration','https://portal.masjidal.com/site/signup']:
@@ -56,11 +58,16 @@ def apply_content_overrides(data, root):
                     paragraph.insert_before(heading); first.decompose()
             block['html'] = str(fragment)
     for slug, description in {
+        'mdonate-phone-app': 'Collect in-person donations with the mDonate phone app and a Stripe card reader. For your masjid team only.',
+        'resetting-al-iqamah': 'Reset Al-Iqamah on your signage player when an update unexpectedly displays a Google Play sign-in screen.',
+        'stripe-integration': 'Connect your Stripe account through Donation Portal to accept donations with the Ultimate plan.',
         'slideshow': 'Choose, schedule, and organize slideshow content on your masjid screens.',
         'sponsor-an-iftar-campaign': 'Set up an iftar sponsorship campaign and manage sponsorships for your community.',
         'zakat-ul-fitr-campaign': 'Create and manage a Zakat ul-Fitr collection campaign for your masjid.'
     }.items():
         if slug in data['articles']: data['articles'][slug]['desc'] = description
+    if 'mdonate-phone-app' in data['articles']:
+        data['articles']['mdonate-phone-app']['image'] = 'assets/images/mdonate-guide.svg'
     screen = data['articles']['screen-size']
     screenshots = [b for b in screen['blocks'] if b['type'] == 'image']
     if len(screenshots) == 5:
