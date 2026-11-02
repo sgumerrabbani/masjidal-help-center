@@ -8,7 +8,7 @@ stamp_assets(ROOT)
 out=ROOT/'artifacts';out.mkdir(exist_ok=True)
 package=out/'masjidal-help-center-upload.zip'
 files=[ROOT/'index.html']
-for folder in ['assets','category','article','al-iqamah']:
+for folder in ['assets','category','article','al-iqamah','widget-demo']:
     files.extend(p for p in (ROOT/folder).rglob('*') if p.is_file())
 with zipfile.ZipFile(package,'w',zipfile.ZIP_DEFLATED) as z:
     for p in sorted(files):z.write(p,p.relative_to(ROOT).as_posix())

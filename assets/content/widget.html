@@ -4,7 +4,12 @@
 <h2>1. Open the widget editor</h2>
 <ol><li>Sign in to your <a href="https://portal.masjidal.com">Masjidal portal</a> and select the correct masjid.</li><li>In the left menu, open <strong>Integrations → Widgets</strong>.</li><li>The editor shows previews for <strong>Prayer Times</strong> and <strong>Announcements</strong>. Use <strong>Installation Guide</strong> for the installation steps.</li></ol>
 <figure><img src="../assets/images/widgets/editor-overview.png" alt="Masjidal portal showing Integrations, Widgets, appearance controls, and prayer times and announcements previews" loading="lazy"></figure>
-<h2>2. Add the widget library to your website</h2>
+<h2>2. Allow your website domain on the frontend key</h2>
+<div class="guide-note"><strong>Required before the widget can load.</strong><p>Adding the script and embed code is not enough if your website is not allowed by the frontend key. The API can return <strong>403: Origin not allowed for this API key</strong>, while the widget itself stays completely blank.</p></div>
+<ol><li>In the Masjidal portal, open <strong>Integrations &rarr; API Keys</strong>.</li><li>Find the <strong>frontend key</strong> used by your widget embed. It begins with <code>msj_pk_</code>. Make sure you are editing the key shown in your own masjid's embed code.</li><li>Edit its allowed website domains. Add the actual hostname where visitors will load the widget, for example <code>isaugusta.com</code>. If you use a <code>www</code> address or a staging subdomain, check whether that hostname also needs to be added.</li><li>For the example page linked below, add <code>sgumerrabbani.github.io</code>. This allows the GitHub preview; it does not replace the permission for your own website.</li><li>Save the API-key changes, then continue with the library and embed steps.</li></ol>
+<p>Use the website hostname, rather than a page path such as <code>/prayer-times/</code>. Test on the published website. A local HTML file or a page-builder preview may use a different origin from the public page.</p>
+<p><a href="../widget-demo/index.html">Open the working new-widget example</a>. It uses a separate configured masjid account. Copy your own portal embed for your masjid's timings and announcements.</p>
+<h2>3. Add the widget library to your website</h2>
 <div class="guide-note"><strong>The new embed needs two parts.</strong><p>An older iframe widget loads its own page. The new <code>&lt;masjidal-widget&gt;</code> tag needs the library script below as well as the embed snippet. Pasting only the widget tag into a Raw HTML block will not display anything unless the library is already installed on that page. The <code>async</code> attribute on the widget tag does not load the library.</p></div>
 <p>Add this script once inside your website’s <code>&lt;head&gt;</code> tag, on the pages where the widgets will appear:</p>
 <pre><code>&lt;script
@@ -12,7 +17,7 @@
   src="https://widgets.masjidal.com/timetable/v0/widget.js"&gt;
 &lt;/script&gt;</code></pre>
 <p>This loads the widget library. You will add the individual widget snippets where you want the prayer times or announcements to appear.</p>
-<h2>3. Customize the widgets</h2>
+<h2>4. Customize the widgets</h2>
 <h3>Global appearance</h3>
 <ul><li><strong>Dark Mode:</strong> choose <strong>Light</strong>, <strong>Auto</strong>, or <strong>Dark</strong>.</li><li><strong>Accent Color:</strong> select an available color. Extra colors and theme options require the Professional plan.</li></ul>
 <h3>Prayer times</h3>
@@ -21,9 +26,9 @@
 <p>Choose an available layout: <strong>Stacked</strong>, <strong>Compact</strong>, or <strong>Ribbon</strong>. Check the preview to see how your announcements will look.</p>
 <p>Open <strong>Advanced Settings</strong> if you need to adjust the additional controls available in your account.</p>
 <figure><img src="../assets/images/widgets/publish-settings.png" alt="Widget editor showing prayer and announcement layout options, Advanced Settings, and the Publish button" loading="lazy"></figure>
-<h2>4. Publish your settings</h2>
+<h2>5. Publish your settings</h2>
 <p>When you are happy with both previews, click <strong>Publish</strong> at the bottom of the settings panel to save the widget configuration. Install the library and publish your settings before embedding the widgets.</p>
-<h2>5. Embed prayer times or announcements</h2>
+<h2>6. Embed prayer times or announcements</h2>
 <ol><li>Click <strong>Embed</strong> above the Prayer Times or Announcements preview.</li><li>The portal fills in your frontend key automatically. Manage your keys and allowed website domains under <strong>Integrations → API Keys</strong>.</li><li>Click <strong>Copy</strong> and paste the complete snippet into your website’s HTML where you want the widget to appear.</li><li>For both widgets, copy and place each snippet separately. Load the library script only once on the page.</li></ol>
 <h3>Prayer times example</h3>
 <p>Copy widget IDs and keys exactly from the portal, without extra spaces at the beginning or end of the quoted values. Test the published page; the page builder's editing canvas may not run third-party widgets.</p>

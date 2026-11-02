@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Live Widget Example | Masjidal</title>
+  <meta name="description" content="A standalone page using the current Masjidal prayer-times and announcements widgets.">
+  <script async src="https://widgets.masjidal.com/timetable/v0/widget.js"></script>
+  <style>
+    @font-face{font-family:Poppins;src:url('https://sgumerrabbani.github.io/masjidal-help-center/assets/fonts/poppins-400.ttf') format('truetype');font-weight:400;font-display:swap}
+    @font-face{font-family:Poppins;src:url('https://sgumerrabbani.github.io/masjidal-help-center/assets/fonts/poppins-600.woff2') format('woff2');font-weight:600;font-display:swap}
+    :root{color-scheme:light;--blue:#0047ab;--ink:#15243a;--muted:#5b687b;--line:#dce5f0;--green:#186b4a}
+    *{box-sizing:border-box}body{margin:0;font-family:Poppins,Arial,sans-serif;color:var(--ink);background:#f5f8fc;line-height:1.65}a{color:var(--blue)}button{font:inherit;cursor:pointer}a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:4px}.container{width:min(1120px,calc(100% - 48px));margin:auto}header{background:#fff;border-bottom:1px solid var(--line)}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:86px}.logo{display:block;width:135px;height:auto}.back{font-size:13px;text-decoration:none}.hero{padding:54px 0 25px}.eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:2px;color:var(--green);font-weight:600}h1{color:var(--blue);font-size:clamp(29px,4vw,43px);line-height:1.25;letter-spacing:-1px;margin:12px 0 18px}h2{font-size:18px;color:var(--blue);margin:0 0 5px}.intro{max-width:740px;color:var(--muted);margin:0 0 24px;font-size:15px}.actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center}.button{display:inline-block;border:1px solid var(--blue);border-radius:9px;padding:10px 17px;background:var(--blue);color:#fff;text-decoration:none;font-size:12px;font-weight:600}.button.secondary{background:white;color:var(--blue)}.status{padding:18px 20px;border:1px solid var(--line);border-left:4px solid var(--blue);background:white;border-radius:12px;margin:26px 0;color:var(--muted);font-size:13px;overflow-wrap:anywhere}.status strong{display:block;color:var(--ink);font-size:14px}.status[data-state=error]{border-left-color:#b34a24;background:#fffaf6}.status[data-state=success]{border-left-color:var(--green);background:#f3faf6}.status p{margin:5px 0 0}.widgets{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:30px;align-items:start;padding:4px 0 36px}.panel{min-width:0}.panel-intro{color:var(--muted);font-size:12px;margin:0 0 18px}.slot{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px;min-height:170px;overflow-wrap:anywhere}masjidal-widget{display:block;max-width:100%}.placeholder{margin:12px 4px;color:var(--muted);font-size:13px}.setup{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 22px;margin-bottom:38px;font-size:13px;color:var(--muted)}summary{cursor:pointer;color:var(--ink);font-weight:600}.setup p{margin:12px 0 0}.setup code{background:#eef3f9;color:#233d63;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}footer{border-top:1px solid var(--line);padding:22px 0 30px;font-size:12px;color:var(--muted)}[hidden]{display:none!important}@media(max-width:760px){.widgets{grid-template-columns:1fr;gap:30px}.hero{padding-top:36px}.container{width:calc(100% - 32px)}.slot{padding:10px}.back{font-size:11px}.logo{width:112px}.nav{min-height:76px}h1{letter-spacing:-.5px}}
+  </style>
+</head>
+<body>
+  <header><div class="container nav"><a href="https://sgumerrabbani.github.io/masjidal-help-center/" aria-label="Masjidal Help Center"><img class="logo" src="https://sgumerrabbani.github.io/masjidal-help-center/assets/images/official/2da24e07aaca55.png" alt="Masjidal"></a><a class="back" href="https://sgumerrabbani.github.io/masjidal-help-center/article/index.html?topic=widget">Widget setup guide &rarr;</a></div></header>
+  <main class="container">
+    <section class="hero"><div class="eyebrow">Current Masjidal widgets</div><h1>Prayer times &amp; announcements</h1><p class="intro">A standalone example using the new widget library and your supplied portal embed code. The panels below display the configured masjid's live content when this website is allowed by the frontend key.</p><div class="actions"><button class="button" id="reload" type="button">Reload widgets</button><button class="button secondary" id="download" type="button">Download this HTML page</button></div></section>
+    <div class="status" id="status" role="status" aria-live="polite"><strong id="statusTitle">Connecting to Masjidal</strong><p id="statusMessage">Checking the saved widget configuration and waiting for the live widgets.</p></div>
+    <section class="widgets" aria-label="Live Masjidal content">
+      <div class="panel"><h2>Prayer times</h2><p class="panel-intro">Salah and Iqamah timings from the configured masjid account.</p><div class="slot"><p class="placeholder" id="prayerPlaceholder">Loading prayer times&hellip;</p>
+        <masjidal-widget async widget-id="fwd1p95WtgtRKOSfhegej" type="prayer" api-key="msj_pk_upFRvqQha40fwf30E4JJAFSY1L2WpBUsLQ82-4SDQNY"></masjidal-widget>
+      </div></div>
+      <div class="panel"><h2>Announcements</h2><p class="panel-intro">Announcements available to this account's widget configuration.</p><div class="slot"><p class="placeholder" id="announcementPlaceholder">Loading announcements&hellip;</p>
+        <masjidal-widget async widget-id="fwd1p95WtgtRKOSfhegej" type="announcement" api-key="msj_pk_upFRvqQha40fwf30E4JJAFSY1L2WpBUsLQ82-4SDQNY"></masjidal-widget>
+      </div></div>
+    </section>
+    <details class="setup"><summary>Using this example on another website</summary><p>Add that website's hostname to the frontend key's allowed domains in <strong>Integrations &rarr; API Keys</strong>. This GitHub preview uses <code>sgumerrabbani.github.io</code>. Then reload the page.</p><p>The downloaded HTML includes the library in its head and both widget snippets. Upload it to an allowed website and open it over HTTPS; opening it directly from your Downloads folder does not give it an allowed website origin.</p><p>This example uses the supplied widget ID. For Augusta or another masjid, replace both widget snippets with code copied from that masjid's own portal. A frontend <code>msj_pk_</code> key is intended for website embeds; never insert an <code>msj_sk_</code> server key.</p></details>
+    <noscript><div class="status" data-state="error">JavaScript must be enabled to display these widgets.</div></noscript>
+  </main>
+  <footer><div class="container">Masjidal widget example &middot; Content is loaded from Masjidal, without sample prayer times.</div></footer>
+  <script>
+    (() => {
+      const status = document.getElementById('status');
+      const title = document.getElementById('statusTitle');
+      const message = document.getElementById('statusMessage');
+      const prayer = document.querySelector('masjidal-widget[type="prayer"]');
+      const announcement = document.querySelector('masjidal-widget[type="announcement"]');
+      const prayerPlaceholder = document.getElementById('prayerPlaceholder');
+      const announcementPlaceholder = document.getElementById('announcementPlaceholder');
+      document.getElementById('reload').addEventListener('click', () => location.reload());
+      let failed = false;
+      let settingsReady = false;
+      let premium = false;
+      let stopped = false;
+      const rendered = widget => Boolean(widget.shadowRoot?.querySelector('div')?.innerText.trim());
+      const setStatus = (state, heading, text) => {
+        status.dataset.state = state;
+        title.textContent = heading;
+        message.textContent = text;
+      };
+      document.getElementById('download').addEventListener('click', async event => {
+        const button = event.currentTarget;
+        button.disabled = true;
+        try {
+          const response = await fetch(new URL('index.html', location.href));
+          if (!response.ok) throw new Error('The HTML file could not be downloaded.');
+          const url = URL.createObjectURL(new Blob([await response.text()], {type:'text/html;charset=utf-8'}));
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = 'masjidal-widget-example.html';
+          document.body.appendChild(link);
+          link.click();
+          link.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 10000);
+        } catch {
+          setStatus('error', 'The example could not be downloaded', 'Please retry, or use your browser menu to save the HTML page.');
+        } finally {
+          button.disabled = false;
+        }
+      });
+      const fail = (heading, text) => {
+        failed = true;
+        stopped = true;
+        setStatus('error', heading, text);
+        prayerPlaceholder.textContent = 'Prayer times could not be loaded. See the message above.';
+        announcementPlaceholder.textContent = 'Announcements could not be loaded. See the message above.';
+      };
+      const controller = new AbortController();
+      const requestTimer = setTimeout(() => controller.abort(), 12000);
+      fetch('https://api.masjidal.com/widgets?widget_id=' + encodeURIComponent(prayer.getAttribute('widget-id')), {
+        headers: {'x-api-key': prayer.getAttribute('api-key'), 'Accept': 'application/vnd.masjidal.com.v1+json'},
+        signal: controller.signal
+      }).then(async response => {
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          if (response.status === 403 && /origin not allowed/i.test(data.message || '')) {
+            fail('This website is not allowed by the frontend key', 'Masjidal returned 403: Origin not allowed for this API key. Add ' + location.hostname + ' to this key\'s allowed domains under Integrations → API Keys, save, and reload.');
+          } else {
+            fail('Masjidal rejected the widget configuration', 'HTTP ' + response.status + ': ' + (data.message || 'Check the frontend key, widget ID, allowed website, and account permissions.'));
+          }
+          return;
+        }
+        if (!data.data?.settings) {
+          fail('No published widget settings were returned', 'Publish the widget settings in the portal and recopy the embed code. If this persists, ask Masjidal support to check this widget ID.');
+          return;
+        }
+        premium = Boolean(data.data.settings.isPremium);
+        settingsReady = true;
+        if (!premium) announcementPlaceholder.textContent = 'The current library does not display announcements for this account\'s non-premium widget configuration.';
+      }).catch(error => {
+        fail('The widget configuration could not be checked', error.name === 'AbortError' ? 'The settings request timed out. Reload or check the Masjidal API connection.' : 'The browser could not read the Masjidal API response. Check network access, allowed domains, and browser CORS/CSP messages.');
+      }).finally(() => clearTimeout(requestTimer));
+      const started = Date.now();
+      const poll = setInterval(() => {
+        if (stopped) { clearInterval(poll); return; }
+        const prayerReady = rendered(prayer);
+        const announcementReady = rendered(announcement);
+        prayerPlaceholder.hidden = prayerReady;
+        announcementPlaceholder.hidden = announcementReady;
+        if (settingsReady && prayerReady && (announcementReady || !premium)) {
+          setStatus('success', premium ? 'Both live widgets are displaying' : 'Live prayer times are displaying', premium ? 'The library, published configuration, and content loaded on this website.' : 'Prayer times loaded. The current library restricts announcements for this account\'s widget configuration.');
+          clearInterval(poll);
+        } else if (Date.now() - started > 15000 && !failed) {
+          if (!customElements.get('masjidal-widget')) fail('The widget library did not start', 'Check whether the script was blocked or delayed. The library URL must load and run on this page.');
+          else {
+            setStatus('error', 'The live widgets have not finished loading', 'The library is registered, but content is still missing. Check the timings and announcements API requests, current timing entries, and account entitlement.');
+            if (!prayerReady) prayerPlaceholder.textContent = 'No prayer-time content has appeared yet.';
+            if (!announcementReady && premium) announcementPlaceholder.textContent = 'No announcement widget has appeared yet.';
+            clearInterval(poll);
+          }
+        }
+      }, 250);
+    })();
+  </script>
+</body>
+</html>
