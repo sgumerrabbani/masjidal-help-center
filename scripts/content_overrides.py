@@ -100,7 +100,7 @@ def apply_content_overrides(data, root):
         else:
             blocks.append({'type': 'html', 'html': str(element)})
     article = data['articles']['widget']
-    article.update(title='Website Widgets', desc='Customize, publish, and embed prayer times and announcements from Integrations → Widgets in the Masjidal portal.', image='assets/images/widgets/editor-overview.png', blocks=blocks, updated='2026-10-20', source='Masjidal portal widget editor and installation guide, supplied screenshots')
+    article.update(title='Website Widgets', desc='Customize, publish, and embed prayer times and announcements from Integrations → Widgets in the Masjidal portal.', image='assets/images/widgets/editor-overview.png', blocks=blocks, updated='2026-11-02', source='Masjidal portal widget editor and installation guide, supplied screenshots; public widget runtime inspection and mocked-API browser tests')
     for topic in data['topics']:
         if topic['slug'] == 'widget':
             topic['desc'] = 'Add prayer times and announcements to your website using customizable Masjidal widgets.'
