@@ -105,6 +105,27 @@ def apply_content_overrides(data, root):
         if topic['slug'] == 'widget':
             topic['desc'] = 'Add prayer times and announcements to your website using customizable Masjidal widgets.'
             topic['image'] = article['image']
+    # Keep new authored articles when refreshing the imported WordPress content.
+    import json
+    catalog = root / 'assets/content/authored-guides.json'
+    for metadata in json.loads(catalog.read_text(encoding='utf-8')) if catalog.exists() else []:
+        document = BeautifulSoup((catalog.parent / metadata['file']).read_text(encoding='utf-8'), 'html.parser')
+        authored_blocks = []
+        for element in document.contents:
+            if not getattr(element, 'name', None):
+                continue
+            image = element.find('img') if element.name == 'figure' else None
+            if image:
+                authored_blocks.append({'type':'image', 'src':image['src'].removeprefix('../'), 'alt':image.get('alt', metadata['title'])})
+            else:
+                authored_blocks.append({'type':'html', 'html':str(element)})
+        slug = metadata['slug']
+        data['articles'][slug] = {key:value for key,value in metadata.items() if key not in ['file', 'categories']}
+        data['articles'][slug]['blocks'] = authored_blocks
+        for category in metadata['categories']:
+            topic = next(topic for topic in data['topics'] if topic['slug'] == category)
+            if slug not in topic['items']:
+                topic['items'].append(slug)
     from PIL import Image
     for guide in data['articles'].values():
         for block in guide['blocks']:

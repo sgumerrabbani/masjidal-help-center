@@ -1,0 +1,12 @@
+[
+  {
+    "slug": "qr-codes",
+    "title": "QR Codes: Images and Timing Screens",
+    "desc": "Display a QR code as a slideshow image or add it to a compatible prayer-time screen on the Professional plan.",
+    "image": "assets/images/official/5b9ea5152ec229.png",
+    "file": "qr-codes.html",
+    "categories": ["in-masjid-displays", "general"],
+    "source": "User-confirmed Pro plan workflow; Masjidal Displaying Images and QR Code on Timing Screen documentation and screenshots",
+    "updated": "2026-11-02"
+  }
+]
