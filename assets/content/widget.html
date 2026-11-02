@@ -5,6 +5,7 @@
 <ol><li>Sign in to your <a href="https://portal.masjidal.com">Masjidal portal</a> and select the correct masjid.</li><li>In the left menu, open <strong>Integrations → Widgets</strong>.</li><li>The editor shows previews for <strong>Prayer Times</strong> and <strong>Announcements</strong>. Use <strong>Installation Guide</strong> for the installation steps.</li></ol>
 <figure><img src="../assets/images/widgets/editor-overview.png" alt="Masjidal portal showing Integrations, Widgets, appearance controls, and prayer times and announcements previews" loading="lazy"></figure>
 <h2>2. Add the widget library to your website</h2>
+<div class="guide-note"><strong>The new embed needs two parts.</strong><p>An older iframe widget loads its own page. The new <code>&lt;masjidal-widget&gt;</code> tag needs the library script below as well as the embed snippet. Pasting only the widget tag into a Raw HTML block will not display anything unless the library is already installed on that page. The <code>async</code> attribute on the widget tag does not load the library.</p></div>
 <p>Add this script once inside your website’s <code>&lt;head&gt;</code> tag, on the pages where the widgets will appear:</p>
 <pre><code>&lt;script
   async
@@ -25,6 +26,7 @@
 <h2>5. Embed prayer times or announcements</h2>
 <ol><li>Click <strong>Embed</strong> above the Prayer Times or Announcements preview.</li><li>The portal fills in your frontend key automatically. Manage your keys and allowed website domains under <strong>Integrations → API Keys</strong>.</li><li>Click <strong>Copy</strong> and paste the complete snippet into your website’s HTML where you want the widget to appear.</li><li>For both widgets, copy and place each snippet separately. Load the library script only once on the page.</li></ol>
 <h3>Prayer times example</h3>
+<p>Copy widget IDs and keys exactly from the portal, without extra spaces at the beginning or end of the quoted values. Test the published page; the page builder's editing canvas may not run third-party widgets.</p>
 <p>These examples use placeholders. Copy your own complete snippet from the portal instead of using these values.</p>
 <pre><code>&lt;masjidal-widget
   async
