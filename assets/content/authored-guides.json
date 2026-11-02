@@ -8,5 +8,15 @@
     "categories": ["in-masjid-displays", "general"],
     "source": "User-confirmed Pro plan workflow; Masjidal Displaying Images and QR Code on Timing Screen documentation and screenshots",
     "updated": "2026-11-02"
+  },
+  {
+    "slug": "daylight-saving-time",
+    "title": "Daylight Saving Time (DST): Clock and Prayer Times",
+    "desc": "Fix one-hour timing differences by checking your masjid account time zone, Salah and Iqamah entries, and the TV player's clock.",
+    "image": "assets/images/dst-guide.svg",
+    "file": "daylight-saving-time.html",
+    "categories": ["in-masjid-displays", "signage-player", "general"],
+    "source": "User-confirmed portal/account workflow; Masjidal Masjid Info, Settings, Salah, Iqamah, and Time Sync documentation and screenshots; Android Help date/time guidance",
+    "updated": "2026-11-02"
   }
 ]

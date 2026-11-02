@@ -35,7 +35,8 @@
         "mobile-app-poster",
         "donation-qr-code",
         "resetting-al-iqamah",
-        "qr-codes"
+        "qr-codes",
+        "daylight-saving-time"
       ]
     },
     {
@@ -83,7 +84,8 @@
       "items": [
         "time-sync",
         "screen-size",
-        "signage-player-setup-guide"
+        "signage-player-setup-guide",
+        "daylight-saving-time"
       ]
     },
     {
@@ -145,7 +147,8 @@
         "zakat-ul-fitr-campaign",
         "mdonate-phone-app",
         "stripe-integration",
-        "qr-codes"
+        "qr-codes",
+        "daylight-saving-time"
       ]
     }
   ],
@@ -5684,6 +5687,121 @@
         {
           "type": "html",
           "html": "<ul><li><strong>Using the Image option?</strong> Check the content schedule, selected zone, and whether the TV is showing the slideshow at that time.</li><li><strong>Using the QR Code option?</strong> Check that the QR content is Active and saved, and that the selected timing screen includes a QR-code area.</li><li>Make sure the player is connected to the internet. If an option is unavailable on an older app, follow <a href=\"../article/index.html?topic=updating-the-app\">Updating Al-Iqamah</a>.</li><li>If the code appears but will not scan, test the original image on your phone, then check the TV's image size, contrast, and scan distance.</li></ul>"
+        }
+      ]
+    },
+    "daylight-saving-time": {
+      "slug": "daylight-saving-time",
+      "title": "Daylight Saving Time (DST): Clock and Prayer Times",
+      "desc": "Fix one-hour timing differences by checking your masjid account time zone, Salah and Iqamah entries, and the TV player's clock.",
+      "image": "assets/images/dst-guide.svg",
+      "source": "User-confirmed portal/account workflow; Masjidal Masjid Info, Settings, Salah, Iqamah, and Time Sync documentation and screenshots; Android Help date/time guidance",
+      "updated": "2026-11-02",
+      "blocks": [
+        {
+          "type": "html",
+          "html": "<p>If your timings look one hour ahead or behind after a daylight saving time (DST) change, check both the masjid account and the TV player. The portal holds your masjid's time zone and prayer timetable; the player also has its own clock and time-zone settings.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<div class=\"guide-note\"><strong>Start by identifying what is wrong.</strong><p>Compare the current clock on the TV, the timings in the Masjidal portal, and your masjid's approved timetable. Correcting a device clock does not edit your saved Salah or Iqamah entries.</p></div>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>Which settings should you check?</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<table><thead><tr><th>What you notice</th><th>Where to start</th></tr></thead><tbody><tr><td>Timings in the portal are wrong, or several displays show the same issue</td><td>Account → Masjid Info → Timezone, then the saved Salah and Iqamah timings</td></tr><tr><td>The current clock on one TV is one hour ahead or behind</td><td>That player's Android date, time, and time zone</td></tr><tr><td>The clock and Salah times are correct, but Iqamah needs to change</td><td>Timings → Iqamah Timings and the effective date of the saved change</td></tr></tbody></table>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>1. Check your masjid account's time zone</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<ol><li>Sign in to the <a href=\"https://portal.masjidal.com/\">Masjidal portal</a>.</li><li>Open <strong>Account → Masjid Info</strong>. This is the masjid account-information page.</li><li>Check the masjid's address and location. Find the <strong>Timezone</strong> field and select the time zone appropriate to your masjid's location.</li><li>Choose the correct regional/city time zone rather than switching regions to compensate for a one-hour difference. For example, a masjid in the Chicago region should use its appropriate Chicago time zone, not change to an Eastern region to make the clock look right.</li><li>Click <strong>Save</strong> if you made a correction.</li><li>Open <strong>Timings → Salah Timings</strong> and <strong>Timings → Iqamah Timings</strong>. Check the date and compare the displayed times with the timetable approved by your masjid.</li></ol>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/4d12001d0c8798.png",
+          "alt": "Account Masjid Info page showing the Timezone dropdown, address, location, and Save button",
+          "width": 1637,
+          "height": 1065
+        },
+        {
+          "type": "html",
+          "html": "<p>If the account's time zone is correct but the timetable is still wrong, review how your timings are maintained. Calculated Salah times and an uploaded timetable require different checks. Follow <a href=\"../article/index.html?topic=salah\">Salah (Athan)</a> for those settings.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<div class=\"guide-note\"><strong>Review before regenerating timings.</strong><p>Saving changes to Salah calculation methods or offsets regenerates timings and overrides existing entries. Do not apply a blanket one-hour offset just to compensate for an incorrect account or device time zone.</p></div>"
+        },
+        {
+          "type": "html",
+          "html": "<h3>Check Iqamah change dates separately</h3>"
+        },
+        {
+          "type": "html",
+          "html": "<p>Iqamah is the congregation time chosen by your masjid. Check whether a new Iqamah entry is needed for the date of the DST change. A saved entry remains in effect until the next change date. Follow <a href=\"../article/index.html?topic=iqamah\">Iqamah</a> to review, add, or edit those entries.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>2. Check the TV player's own clock</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<p>Use this section if the TV's current clock is wrong, especially when the portal or another TV shows the correct time. These steps apply to the Al-Iqamah TV/signage player, rather than the separate Athan Frame setup.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<h3>Open the device settings</h3>"
+        },
+        {
+          "type": "html",
+          "html": "<ol><li>On the TV's prayer-time screen, click the <strong>Masjidal logo in the bottom-right corner</strong>. A USB mouse connected to the player can make this easier.</li><li>On the Al-Iqamah settings screen, select <strong>Android Settings</strong>.</li><li>Find <strong>Date &amp; time</strong>. Depending on the player's Android version, it may appear directly in settings or under <strong>System</strong>. Menu names and placement vary by device.</li></ol>"
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/792d146399966b.png",
+          "alt": "Prayer-time screen with the Masjidal logo highlighted in the bottom-right corner",
+          "width": 2126,
+          "height": 1188
+        },
+        {
+          "type": "image",
+          "src": "assets/images/official/fb2f7c33463d39.png",
+          "alt": "Al-Iqamah settings screen with the Android Settings button along the bottom",
+          "width": 2312,
+          "height": 1175
+        },
+        {
+          "type": "html",
+          "html": "<h3>Check the date, time, and time zone</h3>"
+        },
+        {
+          "type": "html",
+          "html": "<ol><li>Make sure the player is connected to the internet.</li><li>If available, enable <strong>Automatic date &amp; time</strong> or the equivalent network-provided time option.</li><li>Check the selected <strong>Time zone</strong>. If the device supports automatic time-zone detection, verify that it selects the correct region. Otherwise, choose the appropriate regional time zone manually.</li><li>Check the date and the current local time. Avoid manually adding or subtracting one hour while leaving an incorrect time zone selected.</li><li>Return to <strong>Al-Iqamah</strong> and compare the current clock and prayer timetable again. Repeat the device checks on any other affected players.</li></ol>"
+        },
+        {
+          "type": "html",
+          "html": "<p>If the player clock is still out of sync after checking its time zone and internet connection, follow <a href=\"../article/index.html?topic=time-sync\">Current Time Sync (Signage Player)</a>. That guide covers the NTP synchronization app for the signage player.</p>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>3. Confirm that the issue is resolved</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<ul><li>The TV's current clock matches the correct local time.</li><li>The masjid account has the correct regional time zone.</li><li>Salah and Iqamah times for the current date match your masjid's approved timetable.</li><li>Other TVs using the same account also show the expected clock and timings.</li></ul>"
+        },
+        {
+          "type": "html",
+          "html": "<h2>Still one hour off?</h2>"
+        },
+        {
+          "type": "html",
+          "html": "<p>Contact <a href=\"mailto:masjidsupport@masjidal.com\">masjidsupport@masjidal.com</a> with your masjid name and location, player/device type, the selected account and device time zones, a photo of the clock and timings, and the expected times. Mention whether the portal, all TVs, or only one TV is affected.</p>"
         }
       ]
     }
