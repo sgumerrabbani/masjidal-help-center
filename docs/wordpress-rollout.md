@@ -2,6 +2,8 @@
 
 This is a manual deployment guide. No WordPress content, hosting configuration, DNS, plugins, or redirects have been changed by this project.
 
+If cPanel/SFTP access is unavailable but your WordPress account can install plugins, see [Preview upload through WordPress](wordpress-without-cpanel.md). That uses the separate `masjidal-help-center-wordpress-preview.zip` installer and a plugin-folder preview address. The original static upload ZIP is still not a plugin. Either route preserves the old Knowledge Base; the installer does not make the new articles editable through Echo Knowledge Base.
+
 The new help center is a standalone HTML/CSS/JavaScript site. Its articles are edited in the repository, not in the WordPress dashboard. Your screenshot shows a WordPress installation with Knowledge Base, Divi-related tools, WooCommerce/subscriptions, WP Rocket, and All-in-One WP Migration. Preserve that installation while testing and replacing the help section.
 
 ## Choose the destination first
